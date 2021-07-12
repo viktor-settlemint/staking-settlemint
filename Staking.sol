@@ -19,7 +19,7 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 // https://docs.openzeppelin.com/contracts/4.x/api/proxy#transparent-vs-uups
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract StakingV2 is Initializable, UUPSUpgradeable, AccessControlUpgradeable, PausableUpgradeable {
+contract Staking is Initializable, UUPSUpgradeable, AccessControlUpgradeable, PausableUpgradeable {
   using Counters for Counters.Counter;
   using EnumerableSet for EnumerableSet.AddressSet;
 
@@ -367,8 +367,4 @@ contract StakingV2 is Initializable, UUPSUpgradeable, AccessControlUpgradeable, 
 	function unPauseContract() public hasSuperAdminRole {
 		_unpause();
 	}
-
-  function newGetTotalStakeholders() public view returns (uint256) {
-    return stakeholders.length() + 100;
-  }
 }
